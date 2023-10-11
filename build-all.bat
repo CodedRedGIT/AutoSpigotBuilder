@@ -57,20 +57,23 @@ if defined versions[!index!] (
     set "version=!versions[%index%]!"
     title Building !version! - !jobsDone!/!totalJobs!
     set "javaVersion=17"
-    for %%j in (1.17.1 1.16.5 1.16.4 1.16.3 1.16.2 1.16.1) do (
-        if !version! equ %%j set "javaVersion=16"
-    )
-    for %%j in (1.15.2 1.15.1 1.15 1.14.4 1.14.3 1.14.2 1.14.1 1.14 1.13.2 1.13.1 1.13 1.12.2) do (
-        if !version! equ %%j set "javaVersion=8"
-    )
+    set "versionNum=!version:.=!"
+    
+    :: If version is 1.16.x to 1.17.x, set Java version to 16
+    if 1160 lss !versionNum! if !versionNum! lss 1180 set "javaVersion=16"
+    
+    :: If version is 1.8.x to 1.15.x, set Java version to 8
+    if 1080 lss !versionNum! if !versionNum! lss 1160 set "javaVersion=8"
+    
     set "javaExec=!javaPath_Java%javaVersion%!"
     "!javaExec!" -jar BuildTools.jar --rev !version!
     if !ERRORLEVEL! equ 0 (
-    set /a "jobsDone+=1"
+        set /a "jobsDone+=1"
     )
     set /a "index+=1"
     goto loop
 )
+
 
 title AutoSpigotBuilder - Completed
 echo "Done!"
