@@ -5,6 +5,7 @@ title AutoSpigotBuilder - Initializing...
 :: Initialize jobsDone and totalJobs
 set /a "jobsDone=0"
 for /F %%A in ('find /c /v "" ^< versions.txt') do set "totalJobs=%%A"
+set /a "totalJobs=totalJobs-1"
 
 :: Load Java paths from java-paths.txt
 for /F "tokens=1,* delims=: " %%a in (java-paths.txt) do (
