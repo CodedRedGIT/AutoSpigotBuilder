@@ -57,10 +57,10 @@ if defined versions[!index!] (
     set "version=!versions[%index%]!"
     title Building !version! - !jobsDone!/!totalJobs!
     set "javaVersion=17"
-    for %%j in (1.17.1 1.16.5 1.16.4 1.16.3 1.16.2 1.16.1) do (
+    for %%j in (1.17.1) do (
         if !version! equ %%j set "javaVersion=16"
     )
-    for %%j in (1.15.2 1.15.1 1.15 1.14.4 1.14.3 1.14.2 1.14.1 1.14 1.13.2 1.13.1 1.13 1.12.2 1.11.2 1.11.1 1.11 1.10.2 1.9.4 1.9.2 1.9 1.8.8 1.8.3 1.8) do (
+    for %%j in (1.16.5 1.16.4 1.16.3 1.16.2 1.16.1 1.15.2 1.15.1 1.15 1.14.4 1.14.3 1.14.2 1.14.1 1.14 1.13.2 1.13.1 1.13 1.12.2 1.11.2 1.11.1 1.11 1.10.2 1.9.4 1.9.2 1.9 1.8.8 1.8.3 1.8) do (
         if !version! equ %%j set "javaVersion=8"
     )
     set "javaExec=!javaPath_Java%javaVersion%!"
