@@ -8,6 +8,7 @@ AutoSpigotBuilder is a straightforward batch script crafted to simplify the proc
 
 1. **Java**: Ensure Java 8, Java 16, and Java 17 are installed on your machine.
 2. **BuildTools.jar or Curl**: Either pre-download `BuildTools.jar` from [SpigotMC BuildTools](https://www.spigotmc.org/wiki/buildtools/), or ensure Curl is installed on your machine to fetch the file automatically.
+3. **Git**: For BuildTools to run on Windows, it's essential to have Git installed. It's distributed via [git-scm](https://git-scm.com/download/win) for Windows. Install it as needed, and it will provide git bash, which is used to run the BuildTools jar. Just follow the installer's prompts. Note: The latest versions of BuildTools might automatically download and install Git for you. Manually download Git only if you encounter issues.
 
 ## Configuration Files
 
